@@ -1,0 +1,21 @@
+<h2><%=@restaurant.name %></h2>
+    <h3><%=@restaurant.address %></h3>
+    <p><%=@restaurant.category %></p>
+    <p><%=@restaurant.phone_number %></p>
+
+<%= link_to 'rate us', new_restaurant_review_path(@restaurant) %>
+<div class="reviews-container">
+  <%@restaurant.reviews.each do |review|%>
+  <p>
+    <%review.rating.times do%>
+      <i class="fas fa-star"></i>
+    <% end %>
+    <%(5 - review.rating).times do%>
+      <i class="far fa-star"></i>
+    <% end %>
+
+    |
+    <%= review.content %>
+    </p>
+  <% end %>
+</div>

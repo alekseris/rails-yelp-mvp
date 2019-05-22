@@ -1,0 +1,16 @@
+<div class="rastaurant-card">
+  <% @restaurants.each do |restaurant| %>
+    <h2>
+      <%=restaurant.name %>
+      <%= link_to restaurant_path(restaurant), class:"generell-links" do%>
+        <i class="fas fa-person-booth"></i>
+      <% end %>
+      <%= link_to new_restaurant_review_path(restaurant), class:"generell-links" do%>
+        <i class="far fa-star"></i>
+      <% end %>
+    </h2>
+    <h3><%=restaurant.address %></h3>
+    <p><%=restaurant.category %></p>
+    <p><%=restaurant.phone_number %></p>
+  <% end %>
+</div>
